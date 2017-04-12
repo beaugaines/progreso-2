@@ -1,2 +1,5 @@
-<h1>Projects#show</h1>
-<p>Find me in app/views/projects/show.html.erb</p>
+<h1><%= @project.title %></h1>
+<p> <%= @project.body %> </p>
+<h4><%= link_to 'Edit Project', edit_project_path %> </h4>
+<h4><%= link_to 'Delete Project', project_path(@project), method: :delete %> </h4>
+<h4><%= link_to 'Back to Project Index', root_path %> </h4>

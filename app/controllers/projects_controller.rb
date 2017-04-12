@@ -18,7 +18,7 @@ class ProjectsController < ApplicationController
 
 
   def create
-    @project = current_user.projects.new(wiki_params)
+    @project = current_user.projects.new(project_params)
       if @project.save
        flash[:notice] = "Project was saved successfully."
        redirect_to root_path
