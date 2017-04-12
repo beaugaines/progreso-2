@@ -1,21 +1,9 @@
 Rails.application.routes.draw do
-  get 'projects/index'
-
-  get 'projects/show'
-
-  get 'projects/new'
-
-  get 'projects/edit'
-
-  get 'updates/index'
-
-  get 'updates/show'
-
-  get 'updates/new'
-
-  get 'updates/edit'
-
-  get 'welcome/index'
+ resources :projects
+  
+  authenticated :user do
+    root 'projects#index', as: :authenticated_root
+  end
   
   devise_for :users
   root to: 'welcome#index'
