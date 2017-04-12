@@ -10,7 +10,41 @@
  * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
  * file per style scope.
  *
- *= require_tree .
+ *= require_tree
  *= require_self
- @import "bootstrap-sprockets";
- @import "bootstrap";
+ *= require rails_bootstrap_forms
+*/
+
+@import 'bootstrap-sprockets';
+@import 'bootswatch/yeti/variables';
+@import 'bootstrap';
+
+@import url('https://fonts.googleapis.com/css?family=Timmana');
+
+body { padding-top: 80px; }
+
+@import 'bootswatch/yeti/bootswatch';
+
+
+.root-nav {
+  font-family: 'Timmana', sans-serif
+}
+
+.alert-alert {
+  @extend .alert-danger;
+}
+
+.alert-notice {
+  @extend .alert-warning;
+}
+
+@keyframes fadeOut {
+  0% {opacity: 0;}
+  10% {opacity: 1;}
+  90% {opacity: 1;}
+  100% {opacity: 0;}
+}
+
+.alert {
+  animation: fadeOut 4000ms ease-in 0s 1 forwards;
+}

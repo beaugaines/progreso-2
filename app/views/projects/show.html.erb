@@ -1,5 +1,20 @@
-<h1><%= @project.title %></h1>
-<p> <%= @project.body %> </p>
-<h4><%= link_to 'Edit Project', edit_project_path %> </h4>
-<h4><%= link_to 'Delete Project', project_path(@project), method: :delete %> </h4>
-<h4><%= link_to 'Back to Project Index', root_path %> </h4>
+<div class="row">
+  <div class="col-md-12">
+    <h1><%= @project.title %></h1>
+    <p> <%= @project.body %> </p>
+    <h4><%= link_to 'Edit Project', edit_project_path %> </h4>
+    <h4><%= link_to 'Delete Project', project_path(@project), method: :delete %> </h4>
+    <h4><%= link_to 'Back to Project Index', root_path %> </h4>
+
+    <div class="row">
+      <div class="col-md-6">
+        <h3>Add update</h3>
+        <%= bootstrap_form_for [@project, @update] do |f| %>
+          <%= f.text_area :body %>
+          <%= f.select :category, @categories %>
+          <%= f.submit %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

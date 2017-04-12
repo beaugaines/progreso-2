@@ -5,6 +5,8 @@ class ProjectsController < ApplicationController
 
   def show
     @project = Project.find(params[:id])
+    @update = @project.updates.new
+    @categories = Update.categories.keys.map { |c| [c.humanize, c] }
   end
 
   def new
@@ -55,5 +57,5 @@ class ProjectsController < ApplicationController
   def project_params
    params.require(:project).permit(:title, :body)
   end
-  
+
 end
