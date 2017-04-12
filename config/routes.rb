@@ -7,6 +7,6 @@ Rails.application.routes.draw do
     root 'projects#index', as: :authenticated_root
   end
 
-  devise_for :users
+  devise_for :users, controllers: { registrations: 'user/registrations' }
   root to: 'welcome#index'
 end
